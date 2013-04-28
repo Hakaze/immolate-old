@@ -1,0 +1,5 @@
+/bootstrap/compiled.php
+/vendor
+composer.lock
+CONTRIBUTING.md
+.DS_Store

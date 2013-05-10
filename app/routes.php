@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::controller('account','AccountController');
+Route::get('account/login', array('as' => 'login', 'uses' => 'AccountController@getLogin'));
+Route::controller('soulbinders', 'SoulbindersController');
+Route::get('/', array('as' => 'home', 'uses' => 'SoulbindersController@getIndex'));

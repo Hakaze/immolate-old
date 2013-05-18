@@ -68,7 +68,8 @@ class SoulbindersController extends AuthorizedController {
 	public function getView($id)
 	{
 		$soulbinder = Soulbinder::find($id);
-		return Response::make($soulbinder->stronghold()->myPage());
+		$response = $soulbinder->stronghold()->myPage();
+		die('<pre>' . $response . '</pre>');		
 		//return View::make('soulbinders/view');
 	}
 

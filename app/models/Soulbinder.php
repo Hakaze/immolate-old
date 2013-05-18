@@ -12,6 +12,14 @@ class Soulbinder extends Ardent
     use Immolater;
 
     /**
+     * 
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->init();
+    }
+    /**
      * Validation rules
      * @var array
      */

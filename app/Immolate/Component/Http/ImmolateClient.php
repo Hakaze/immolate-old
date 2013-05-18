@@ -3,7 +3,7 @@
 use Guzzle\Http\Client;
 use Guzzle\Http\Message\Response;
 
-class Client
+class ImmolateClient
 {
 
    const USER_AGENT = 'Immortalis/1.4 (iPhone; CPU iPhone OS 6_1)';
@@ -15,30 +15,6 @@ class Client
    {
       $this->sb = $sb;
       $this->client = new Client($this->server);
-   }
-
-   public function fetch($method, $path, $data = null)
-   {
-      $request = call_user_func_array(array(__CLASS__ , $method), array($path, $data));
-      $request->addCookie('PHPSESSID',$this->sb->php_sess_id);
-      $request->setHeader('User-Agent', 'Immortalis/1.4 (iPhone; CPU iPhone OS 6_1)');
-      try {
-         $response = $request->send();
-      } catch(Guzzle\Http\Exception\BadResponseException $e) {
-         echo 'Response Error: ' . $e->getMessage();
-      }
-
-      $handler = new ResponseHandler($response);
-
-      if($handler->type['status'] == 'relogin'){
-        if($this->reLogin()){
-          return $this->fetch($method,$path, $data);
-        } else {
-          echo "could not login";
-        }
-      } else {
-         return $handler;
-      }
    }
 
    /*

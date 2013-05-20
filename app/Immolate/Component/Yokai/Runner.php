@@ -69,7 +69,7 @@ class Runner {
         }
         
         // build command
-        // 
+        //
         $cmd = escapeshellcmd("{$this->bin} $options");
         if($this->debug) $cmd .= ' 2>&1';
 

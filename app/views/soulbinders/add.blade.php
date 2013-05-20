@@ -39,6 +39,15 @@
   </div>
   <!-- ./ device_token -->
 
+  <!-- app_version -->
+  <div class="control-group {{{ $errors->has('app_version') ? 'error' : '' }}}">
+    <label class="control-label" for="app_version">App Version</label>
+    <div class="controls">
+      <input type="text" name="app_version" id="app_version" value="{{{ Request::old('app_version') }}}" />
+    </div>
+  </div>
+  <!-- ./ app_version -->
+
   <!-- social_id -->
   <div class="control-group {{{ $errors->has('social_id') ? 'error' : '' }}}">
     <label class="control-label" for="social_id">Social ID</label>

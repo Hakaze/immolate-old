@@ -28,7 +28,7 @@ class ImmolateClient
          'social_id' => $this->sb->social_id,
          'urlpara' => 'login/register',
          'device_token' => $this->sb->device_token,
-         'app_version' => '1.4',
+         'app_version' => $this->sb->app_version,
          'adid' => $this->sb->adid,
          'mac' => $this->sb->mac,
       );
@@ -59,20 +59,5 @@ class ImmolateClient
       } else {
         return false;
       }
-   }
-
-   public function post($path, $data)
-   {
-      return $this->client->post(array('{/path}{?data*}', array(
-         'path' => $path,
-         'data' => $data
-      )));
-   }
-   public function get($path, $data)
-   {
-      return $this->client->get(array('{/path}{?data*}', array(
-         'path' => $path,
-         'data' => $data
-      )));
    }
 }

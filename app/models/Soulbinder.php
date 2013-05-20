@@ -1,7 +1,6 @@
 <?php
 
 use LaravelBook\Ardent\Ardent;
-use Immolate\Entity\Immolater;
 
 class Soulbinder extends Ardent 
 {
@@ -9,16 +8,14 @@ class Soulbinder extends Ardent
     /**
      * Extend the Immolater trait
      */
-    use Immolater;
+    use Immolate\Entity\Immolater;
 
-    /**
-     * 
-     */
     public function __construct()
     {
         parent::__construct();
         $this->init();
     }
+
     /**
      * Validation rules
      * @var array

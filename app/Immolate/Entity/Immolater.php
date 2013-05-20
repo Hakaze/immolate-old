@@ -1,24 +1,18 @@
 <?php namespace Immolate\Entity;
 
-use Immolate\Component\Emulator;
+use Immolate\Component\Emulator\Dispatcher;
 use Immolate\Component\Http\ImmolateClient;
-use Illuminate\Support\Facades\Event;
 
 trait Immolater
 {
 
     public $client;
+    public $emulator;
 
     public function init()
     {
     	$this->client = new ImmolateClient($this);
-    	$subscriber = new ImmolaterEventHandler();
-    	Event::subscribe($subscriber);
-    }
-
-    public function stronghold()
-    {   
-        return new Emulator\StrongholdEmulator($this);
+        $this->emulator = new Dispatcher($this);
     }
 
 }

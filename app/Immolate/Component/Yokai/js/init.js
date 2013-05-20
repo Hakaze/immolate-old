@@ -15,13 +15,13 @@ var casper = require('casper').create({
 });
 
 /**
- * Create return data
+ * Create return data with defaults
  */
 
 var returnData = {
     statusCode: 1,
-    statusMsg: 'OK',
-    response: null
+    statusMsg: "OK",
+    response: ""
 };
 
 /**
@@ -48,6 +48,7 @@ casper.on('url.changed', function(url){
     if(url == 'http://imm-mobile.aeriagames.com/login/relogin'){
         returnData.statusMsg = 'session.expired';
         returnData.statusCode = '2';
+        returnData.cookieUsed = cookie;
         this.exit();
     }
 });

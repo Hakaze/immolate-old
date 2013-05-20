@@ -39,6 +39,7 @@ class SoulbindersController extends AuthorizedController {
 			$soulbinder->social_id = Input::get('social_id');
 			$soulbinder->oauth = Input::get('oauth');
 			$soulbinder->mac = Input::get('mac');
+			$soulbinder->app_version = Input::get('app_version');
 			
 			if($soulbinder->save()){
 				return Redirect::action('SoulbindersController@getIndex')->with('success', '{$soulbinder->name created!}');
@@ -68,9 +69,9 @@ class SoulbindersController extends AuthorizedController {
 	public function getView($id)
 	{
 		$soulbinder = Soulbinder::find($id);
-		$response = $soulbinder->stronghold()->myPage();
-		die('<pre>' . $response . '</pre>');		
-		//return View::make('soulbinders/view');
+		$data = $soulbinder->emulator->perform('stronghold');
+		$data['soulbinder'] = $soulbinder;		
+		return View::make('soulbinders/view')->with('data', $data);
 	}
 
 	public function getQuest($id)

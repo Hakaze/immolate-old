@@ -79,15 +79,11 @@ class Runner {
         
         // handle return
         //
-        if($this->debug){
-            return $result;
-        } 
-        if($result === null){
-            return false;
-        } 
         if(substr($result, 0, 1) !== '{'){
             //not json
-            return $result;
+            //
+            echo '<pre>';
+            die($result . '</pre>');
         } else {
             $json = json_decode($result, $asArray = true);
             if($json === null){

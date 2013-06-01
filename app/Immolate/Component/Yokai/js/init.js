@@ -6,13 +6,15 @@ var casper = require('casper').create({
     verbose: false,
     logLevel: "debug",
     exitOnError: function(self, m){
-        console.log('FATAL:' + m);
-        self.exit();
+        returnData.statusCode = 0;
+        returnData.statusMsg = m;
     },
     pageSettings: {
         userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B142'
     }
 });
+
+var utils = require('utils');
 
 /**
  * Create return data with defaults

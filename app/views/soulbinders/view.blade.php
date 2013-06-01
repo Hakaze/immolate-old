@@ -13,7 +13,7 @@
    <div class="row">
       <div class="span3">
          <a href='#' class='thumbnail'>
-            <img src="http://imm-mobile.aeriagames.com{{{ $data['img_path'] }}}" alt="" />
+            <img src="http://imm-mobile.aeriagames.com{{{ $data['card_img'] }}}" alt="" />
          </a>
       </div>
       <div class="span3">

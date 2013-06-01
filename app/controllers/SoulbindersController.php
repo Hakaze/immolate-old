@@ -55,8 +55,6 @@ class SoulbindersController extends AuthorizedController {
 	 */
 	public function getCreate()
 	{
-		$form = new Formly();
-
 		return View::make('soulbinders/create')->with('form', $form);
 	}
 
@@ -69,8 +67,8 @@ class SoulbindersController extends AuthorizedController {
 	public function getView($id)
 	{
 		$soulbinder = Soulbinder::find($id);
-		$data = $soulbinder->emulator->perform('stronghold');
-		$data['soulbinder'] = $soulbinder;		
+		$data = $soulbinder->emulator->perform('profile');
+		$data['soulbinder'] = $soulbinder;
 		return View::make('soulbinders/view')->with('data', $data);
 	}
 

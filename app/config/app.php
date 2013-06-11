@@ -39,7 +39,7 @@ return array(
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'America/New_York',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'key' => 'YourSecretKey!!!',
+	'key' => '2837563874973175385942874gh5yd2a',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -96,6 +96,7 @@ return array(
 		'Illuminate\Foundation\Providers\KeyGeneratorServiceProvider',
 		'Illuminate\Log\LogServiceProvider',
 		'Illuminate\Mail\MailServiceProvider',
+		'Illuminate\Foundation\Providers\MaintenanceServiceProvider',
 		'Illuminate\Database\MigrationServiceProvider',
 		'Illuminate\Foundation\Providers\OptimizeServiceProvider',
 		'Illuminate\Pagination\PaginationServiceProvider',
@@ -111,8 +112,7 @@ return array(
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
-		'Illuminate\Workbench\WorkbenchServiceProvider',
-
+		'Illuminate\Workbench\WorkbenchServiceProvider'
 	),
 
 	/*
@@ -157,7 +157,7 @@ return array(
 		'File'            => 'Illuminate\Support\Facades\File',
 		'Form'            => 'Illuminate\Support\Facades\Form',
 		'Hash'            => 'Illuminate\Support\Facades\Hash',
-		'Html'            => 'Illuminate\Support\Facades\Html',
+		'HTML'            => 'Illuminate\Support\Facades\HTML',
 		'Input'           => 'Illuminate\Support\Facades\Input',
 		'Lang'            => 'Illuminate\Support\Facades\Lang',
 		'Log'             => 'Illuminate\Support\Facades\Log',

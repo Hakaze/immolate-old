@@ -1,0 +1,103 @@
+/*
+ * Structure
+ */
+
+#wrapper {
+  padding-top:60px;
+}
+
+#ng-view {
+  position:relative;
+  min-height:500px;
+}
+
+.thumbnail {
+  padding: 10px;
+}
+
+/*
+ * Animations
+ */
+
+.loading {
+  background:url(/img/ajax-loader.gif) center center no-repeat;
+  height:50px;
+}
+.view-enter, .view-leave, .slide-enter, .slide-leave, .nav-enter, .nav-leave, .fade-enter {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s;
+  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s;
+  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s;
+}
+
+.view-enter {
+  opacity:0;
+  left:50px;
+  width:100%;
+  position:absolute;
+}
+.view-enter.view-enter-active {
+  left:0;
+  opacity:1;
+}
+
+.view-leave {
+  position:absolute;
+  left:0;
+  width:100%;
+  opacity:1;
+}
+.view-leave.view-leave-active {
+  left:-100px;
+  opacity:0;
+}
+
+.active-cell-frame {
+  background:#ddd;
+  border-radius:20px;
+}
+
+.slide-enter {
+  opacity:0;
+  left:50px;
+  position:relative;
+}
+.slide-enter.slide-enter-active {
+  left:0;
+  opacity:1;
+}
+
+.slide-leave {
+  position:relative;
+  left:0;
+  opacity:1;
+}
+.slide-leave.slide-leave-active {
+  left:-100px;
+  opacity:0;
+}
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter.fade-enter-active{
+  opacity: 1;
+}
+.nav-enter {
+  position:absolute;
+  opacity: 0;
+  top:-100px;
+}
+
+.nav-enter.nav-enter-active {
+  top:0;
+  opacity: 1;
+}
+
+.nav-leave {
+  position:absolute;
+  top:0;
+}
+
+.nav-leave-active {
+  top:-100%;
+}

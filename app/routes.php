@@ -11,7 +11,17 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::get('/', function(){
+	return View::make('app');
 });
+Route::post('/account/login', array('before' => 'csrf_json', 'uses' => 'AccountController@postLogin'));
+Route::get('/account/logout', 'AccountController@getLogout');
+Route::controller('account','AccountController');
+Route::resource('soulbinder', 'SoulbindersController');
+Route::get('/soulbinder/{soulbinder}/updates', 'UpdatesController@index');
+Route::post('/soulbinder/{soulbinder}/updates', 'UpdatesController@confirm');
+Route::get('/soulbinder/{soulbinder}/giftbox', 'GiftboxController@index');
+Route::post('/soulbinder/{soulbinder}/giftbox', 'GiftboxController@accept');
+Route::get('/soulbinder/{soulbinder}/shop', 'ShopController@index');
+Route::post('/soulbinder/{soulbinder}/shop', 'ShopController@purchase');
+

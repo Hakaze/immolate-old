@@ -1,0 +1,36 @@
+<div ng-controller="GiftboxController">
+	<div ng-switch="results > 0">
+		<div ng-switch-when="true">
+			<h2>Giftbox</h2>
+			<div class="btn-toolbar pull-right">
+				<button ng-click="acceptAll(gifts)" class="btn btn-small btn-success">Accept All</button>
+				<button ng-click="acceptSelected(gifts)" class="btn btn-small btn-info">Accept Selected</button>
+			</div>
+			<table class="table table-bordered table-striped">
+				<thead>
+		    		<tr>
+		    			<td>Item</td>
+		    			<td>Description</td>
+		    			<td>Amount</td>			    			
+		    			<td>Sent</td>
+		    			<td>Image</td>
+		    			<td></td>
+		    		</tr>
+	    		</thead>
+		    	<tbody>
+		         <tr ng-repeat="gift in gifts">
+						<td>{{gift.name}}</td>
+						<td>{{gift.comment}}</td>
+						<td>{{gift.num}}</td>		           
+						<td>{{gift.create_date}}</td>
+						<td>
+							<img width="28px" height="28px" ng-src="http://imm-mobile.aeriagames.com{{gift.type == 4 || gift.type == 5 ? '/img/card/m/' : '/img/item/s/'}}{{gift.img}}.jpg" />
+						</td>
+						<td><input type="checkbox" ng-model="gift.checked" /></td>
+         		</tr>
+    			</tbody>
+		  	</table>
+		</div>
+		<div ng-switch-when="false"><h4>No gifts at the moment.</h4></div>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+<div ng-controller="UpdatesController">
+	<div ng-switch="results > 0">
+		<div ng-switch-when="true">
+			<h2>Updates</h2>
+			<p ng-repeat="update in updates"><span class="label label-info">{{update.msg}}</span></p>
+			<button class="btn btn-primary" ng-click="confirmUpdates()">Confirm Updates</button>
+		</div>
+		<div ng-switch-default class="loading"></div>
+	</div>
+</div>

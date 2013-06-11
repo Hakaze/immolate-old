@@ -1,0 +1,54 @@
+<div>
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<ul class="breadcrumb">
+				  <li><a href="#">Home</a> <span class="divider">/</span></li>
+				  <li><a href="#">Library</a> <span class="divider">/</span></li>
+				  <li class="active">Data</li>
+				</ul>
+			</div>
+		</div>
+	   <div class="row">
+	      <div class="span3">
+	      	<ul class="thumbnails">
+	      		<li>
+		         	<div class='thumbnail'>
+		            	<img ng-src="http://imm-mobile.aeriagames.com{{soulbinder.card_img}}" alt="" />
+		            	<h3>{{soulbinder.name}}</h3>
+      					<p><strong>Level:</strong> {{soulbinder.level}}</p>
+      					<p>
+				            <strong>MP:</strong><span class="pull-right strong">{{soulbinder.mp}} / {{soulbinder.mp_max}}</span>
+				            <div class="progress progress-striped active">
+				                     <div class="bar" style="width: {{soulbinder.mp / soulbinder.mp_max *100 }}%"></div>
+				            </div>
+				         </p>
+				         <p>
+				            <strong>STA:</strong><span class="pull-right strong">{{soulbinder.stamina}} / {{soulbinder.stamina_max}}</span>
+				            <div class="progress progress-success progress-striped active">
+				                     <div class="bar" style="width: {{soulbinder.stamina / soulbinder.stamina_max *100 }}%"></div>
+				            </div>
+				         </p>
+				         <p>
+				            <strong>EXP:</strong><span class="pull-right strong">{{soulbinder.exp}} / {{soulbinder.levelup_exp}}</span>
+				            <div class="progress progress-warning progress-striped active">
+				                     <div class="bar" style="width: {{soulbinder.exp / soulbinder.levelup_exp *100 }}%"></div>
+				            </div>
+				         </p>
+		         	</div>
+		         </li>
+	      	</ul>
+	      </div>
+	      <div class="span9">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<ul class="nav">
+							<li ng-repeat="tab in tabs" ng-class="tabClass($index)"><a href="" ng-click="loadTab($index)">{{tab.name}}</a></li>				
+						</ul>
+					</div>
+				</div>
+				<div ng-include="tabs[tabSelected].template" ng-animate="{enter: 'slide-enter'}"></div>
+	      </div>
+	   </div>
+	</div>
+</div>

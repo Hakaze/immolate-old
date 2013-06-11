@@ -15,11 +15,10 @@ class Dispatcher
         $this->yokai = new Yokai();
     }
 
-    public function perform($action)
+    public function perform($action, $args = null)
     {
-    	$return = $this->yokai->execute($action,array(
-    		'php-sess-id' => $this->immolater->php_sess_id
-		));
+        $args['php-sess-id'] = $this->immolater->php_sess_id;
+    	$return = $this->yokai->execute($action,$args);
         // fire relogin event
         //
         if($return['statusCode'] == 2){

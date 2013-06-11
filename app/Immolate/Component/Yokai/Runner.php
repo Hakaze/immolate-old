@@ -65,14 +65,13 @@ class Runner {
         //
         $options = __DIR__ . "/js/init.js --action=$action";
         foreach($this->options as $opt => $val){
-            $options .= " --$key=$val";
+            $options .= " --$opt=$val";
         }
         
         // build command
         //
         $cmd = escapeshellcmd("{$this->bin} $options");
         if($this->debug) $cmd .= ' 2>&1';
-
         // execute
         // 
         $result = shell_exec($cmd);

@@ -1,0 +1,28 @@
+<div ng-controller="ShopController">
+	<div ng-switch="results > 0">
+		<div ng-switch-when="true">
+			<h2>Shop</h2>
+			<table class="table table-bordered table-striped">
+				<thead>
+		    		<tr>
+		    			<td>Item</td>
+		    			<td>Description</td>
+		    			<td>Image</td>
+		    			<td></td>
+		    		</tr>
+	    		</thead>
+		    	<tbody>
+		         <tr ng-repeat="item in items">
+						<td>{{item.name}}</td>
+						<td>{{item.note}}</td>
+						<td>
+							<img width="28px" height="28px" ng-src="{{item.img_path}}" />
+						</td>
+						<td><button class="btn btn-small btn-primary" ng-click="purchase(item.id)">Purchase</button></td>
+         		</tr>
+    			</tbody>
+		  	</table>
+		</div>
+		<div ng-switch-when="false"><h4>No free items at the moment.</h4></div>
+	</div>
+</div>

@@ -1,0 +1,8 @@
+<div ng-controller="StrongholdController">
+	<div class="btn-toolbar">
+		<div class="btn-group" ng-repeat="action in actions">
+			<button ng-click="loadAction($index)" class='btn btn-primary'><i class='{{action.icon}}'></i> {{action.name}}</button>
+		</div>
+	</div>
+	<div ng-include="actions[actionSelected].template" ng-animate="{enter: 'slide-enter'}"></div>
+</div>

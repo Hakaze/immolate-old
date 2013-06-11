@@ -1,16 +1,15 @@
 <?php
 
-class SoulbindersController extends AuthorizedController {
+class SoulbindersController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function getIndex()
+	public function index()
 	{
-		$soulbinders = User::find(Auth::user()->id)->soulbinders;
-		return View::make('soulbinders/index')->with('soulbinders', $soulbinders);	
+		return User::find(Auth::user()->id)->soulbinders;
 	}
 
 	/**
@@ -18,7 +17,7 @@ class SoulbindersController extends AuthorizedController {
 	 *
 	 * @return Response
 	 */
-	public function getAdd()
+	public function create()
 	{
 		return View::make('soulbinders/add');
 	}
@@ -28,7 +27,7 @@ class SoulbindersController extends AuthorizedController {
 	 *
 	 * @return Response
 	 */
-	public function postAdd()
+	public function store()
 	{
 			$soulbinder = new Soulbinder();
 			$soulbinder->user_id = Auth::user()->id;
@@ -49,27 +48,31 @@ class SoulbindersController extends AuthorizedController {
 	}
 
 	/**
-	 * Show the form for adding a new resource.
-	 *
-	 * @return Response
-	 */
-	public function getCreate()
-	{
-		return View::make('soulbinders/create')->with('form', $form);
-	}
-
-	/**
 	 * Display the specified resource.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function getView($id)
+	public function show($id)
 	{
 		$soulbinder = Soulbinder::find($id);
 		$data = $soulbinder->emulator->perform('profile');
-		$data['soulbinder'] = $soulbinder;
-		return View::make('soulbinders/view')->with('data', $data);
+		$data['id'] = $soulbinder->id;
+		$data['name'] = $soulbinder->name;
+		return Response::json($data);
+	}
+
+	public function getGiftbox($id)
+	{
+		$soulbinder = Soulbinder::find($id);
+		return Response::json(array('giftbox' => $soulbinder->emulator->perform('giftbox')));
+	}
+
+	public function postGiftbox($id)
+	{
+		$soulbinder = Soulbinder::find($id);
+		$gifts = Input::json('gifts');
+		return Response::json(array('message' => $soulbinder->emulator->perform('acceptgifts', array('gifts' => $gifts))));
 	}
 
 	public function getQuest($id)

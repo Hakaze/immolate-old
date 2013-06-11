@@ -1,4 +1,3 @@
-
 casper.open('http://imm-mobile.aeriagames.com/profile/',
     {
         method: 'get'
@@ -11,7 +10,7 @@ casper.then(function getUserData() {
     });
     user_data = {
         exp: header_user_data.exp,
-        levelup_exp: header_user_data.exp,
+        levelup_exp: header_user_data.levelup_exp,
         level: header_user_data.level,
         stamina: header_user_data.stamina,
         stamina_max: header_user_data.stamina_max,

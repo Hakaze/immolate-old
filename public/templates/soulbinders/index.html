@@ -1,0 +1,21 @@
+<div>
+  <h2>
+    <a href="#/soulbinders/add" class="btn btn-primary">Add Existing</a>
+  </h2>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Account Name</th>
+        <th>Session ID</th>
+        <th>Created</th>
+      </tr>
+    </thead>
+    <tbody>
+         <tr ng-repeat="sb in soulbinders">
+           <td><a href='#/soulbinders/{{sb.id}}'>{{ sb.name }}</a></td>
+           <td>{{ sb.php_sess_id }}</td>
+           <td>{{ sb.created_at }}</td>
+         </tr>
+    </tbody>
+  </table>
+</div>
